@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" style="font-size:6.5%">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"><title>zepto</title>
+<style>
+body,figure{
+		margin:0;
+		padding:0;
+}
+	.container{
+			width:500vw;
+			overflow: hidden;
+				
+	}
+	.box{
+		width:500vw;
+		overflow: hidden;
+
+	}
+	.box img{
+		width:100vw;
+		height:auto;
+		float:left;
+	}
+	figure{
+		width:100%;
+		position:relative;
+
+	}
+</style>
+<script src="js/zepto.min.js"></script>
+<script src="js/hammer.min.js"></script>
+<script src="js/animate.js"></script>
+<script>
+	Zepto(function($){
+		var box=document.getElementById("box");
+		var hammer=new Hammer(box);
+		var index=0;
+		var swipeMove=function(e){
+			if(e.direction==2){
+					 index=$(e.target).index()+1;
+			}if(e.direction==4){
+					 index=$(e.target).index()-1;
+			}
+			if(index>4 && e.direction==2 || $(e.target).index()==0 && e.direction==4){
+				return false;
+			}
+			hammer.off("swipe");
+			$(".box").animate({"translate":-index*100+"vw"},300,
+			function(){
+				hammer.on("swipe",swipeMove);
+			});
+		}
+		hammer.on("swipe",swipeMove);
+	setInterval(function(){
+		index++;
+		if(index>4){
+			$(".box").css("translate","0");
+			index=0;
+		}
+		$(".box").animate({"translate":-index*100+"vw"});
+	},1000);
+	});
+</script>
+</head>
+
+<body>
+<section class="container">
+<scetion class="box" id="box">
+
+<figure><img src="img/1.jpg" alt="1"></figure>
+<figure><img src="img/2.jpg" alt="2"></figure>
+<figure><img src="img/3.jpg" alt="3"></figure>
+<figure><img src="img/4.jpg" alt="4"></figure>
+<figure><img src="img/5.jpg" alt="5"></figure>
+</section>
+<secton>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</section>
+</section>
+</body>
+</html>

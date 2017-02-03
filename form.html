@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表单验证</title>
+		<style>
+			span{
+				color:red;
+			}
+			input{
+				border:1px solid #39D3FF;
+				background:transparent;
+			}
+		</style>
+		<script>
+	
+			function test(){
+				var show=function(name){
+					var a=document.getElementById(name);
+			return a;
+				}
+				var user=show("user");
+				var user1=show("user1");
+				var pwd1=show("pwd1");
+				var pwd11=show("pwd11");
+				var pwd2=show("pwd22");
+				var pwd22=show("pwd22");
+				var city=show("city");
+				var city1=show("city1");
+				var btn=show("btn");
+				var sex1=show("sex1");
+				var sex2=show("sex2");
+				var sex11=show("sex11");
+				if(user.value==""){
+					user1.innerHTML="用户名不能为空";
+					}
+				if(pwd1.value==""){
+					pwd11.innerHTML="请输入密码";
+				}
+				if(!(sex1.checked||sex2.checked)){
+					sex11.innerHTML="请选择性别";
+				}
+				if(city.options[0].selected){
+					city1.innerHTML="请选择城市";
+				}
+			}
+			function rest1(){
+				var show=function(id){
+					return document.getElementById(id);
+				}
+				var user1=show("user1");
+				var pwd11=show("pwd11");
+				var pwd22=show('pwd22');
+				var sex11=show("sex11");
+				var city1=show("city1");
+				user1.innerHTML="*";
+				pwd11.innerHTML="*";
+				pwd22.innerHTML="*";
+				sex11.innerHTML="*";
+				city1.innerHTML="*";
+}
+			function password(){
+				var pwd1=document.getElementById("pwd1");
+				var pwd2=document.getElementById('pwd2');
+				var pwd22=document.getElementById('pwd22');
+				if(pwd1.value!=pwd2.value){
+					pwd22.innerHTML="两次密码不正确";
+					
+				}
+				}
+				function User2(){
+					var user=document.getElementById("user");
+					var user1=document.getElementById("user1");
+					if(user.value.length<6){
+						user1.innerHTML="用户名不能少于六位";
+					}
+				}
+		
+		</script>
+	</head>
+	<body>
+		用户名：<input type="text" size="13" id="user" onfocus="rest1()" onblur="User2()" />&nbsp<span id="user1">*</span><br><br>
+		密码    ：<input type="password" id="pwd1">&nbsp<span id="pwd11">*</span><br><br>
+		确认密码：<input type="password" id="pwd2" onblur="password()" /><span id="pwd22"></span><br><br>
+		性别：<input type="radio" name="six" id="sex1" />男
+		<input type="radio" name="six" id="sex2"  />女&nbsp<span id="sex11">*</span><br><br>
+		请选择城市：<select id="city">
+			<option  selected>请选择城市</option>
+			<option>北京</option>
+			<option>杭州</option>
+			<option>上海</option>
+			<option>南京</option>
+		</select>&nbsp<span id="city1"></span>
+		<input type="button"  id="btn" value="提交" onclick="test()"/>
+	</body>
+</html>

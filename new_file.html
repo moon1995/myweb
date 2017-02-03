@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>解决塌陷</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<script>
+		
+			window.onload=function(){
+				var time=this.time;
+				var pic=document.getElementById("pic");
+		function  show(i){
+	i=1;
+			pic.style.height=pic.offsetHeight+i+"px";
+				if(pic.offsetHeight>=200){
+				
+						clearInterval(time);
+					}
+			if(pic.offsetHeight<=10){
+						clearInterval(time);
+					}
+						}
+				pic.onmouseover=function(){
+				time=setInterval(show,30); 
+				}
+				pic.onmouseout=function(){
+				time=setInterval(show,30);
+				}
+			}
+		</script>
+		<style>
+
+			div{
+				display: flex;
+			}
+	
+		div span{
+			flex:1;
+			
+			background: #d90;
+			color:#fff;
+			margin-left:10px;
+			text-align: center;
+		}
+		#pic{
+			height: 20px;
+		}
+		</style>
+
+	</head>
+
+	<body>
+
+
+
+	<div>
+    <span id="pic">测试1</span>
+    <span>测试二</span>
+    <span>测试三</span>     
+	</div>
+
+</html>

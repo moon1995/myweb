@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			table{
+				border:1px solid #00A9E7;
+				border-collapse: collapse;
+				width:80%;
+				}
+			
+		</style>
+		<script src="jquery-1.8.3.min.js">
+		</script>
+		<script src="jquery.fullPage.min.js"></script>
+		<script>
+			$(function(){
+
+				$("#add").click(function(){
+					str="<tr><td><input type='text' class='text'/></td><td><input type='text' class='text'/></td><td><input type='button' value='删除'  class='delete'/></td></tr>";
+					$("table").append(str);
+					$(".text").blur(function(){
+			
+					})
+					
+					
+				});
+				$("table").on("click",".delete",function(){
+					$(this).parent().parent().remove();
+				})
+				
+			})
+		</script>
+	</head>
+	<body>
+<table border="1" >
+	<tr>
+		
+		<td>最低额度</td>
+		<td>最高额度</td>
+		<td>操作</td>
+	</tr>
+	<tr>
+		
+		<td><input type="text" class="text" value="100"/></td>
+		<td><input type="text" class="text" value="200"/></td>
+		<td><input type="button" value="删除 " class="delete"/></td>
+	</tr>
+</table>
+<input type="button" value="添加" id="add"/>
+<input type="button" value="保存" id="save"/>
+	</body>
+</html>

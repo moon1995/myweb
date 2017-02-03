@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>日历</title>
+		<style>
+			#div1{
+				background:#ccc;
+				width:200px;
+				height:400px;
+				text-align:center;
+				border:1px solid yellow;
+			}
+			div ul{
+				margin:0px;
+				padding:0px;
+				list-style:none;
+				margin:0px 10px;
+			}
+			div ul li{
+				width:50px;
+				height:50px;
+				float:left;
+				background:yellow;
+				border:1px solid red;
+				margin:2px;
+				line-height:50px;
+			}
+			div li a{
+				color:#D5503F;
+				text-decoration:none;
+				font-size:20px;
+			}
+			#div2{
+				clear:both;
+				
+			}
+			.active{
+				background:#FFFFFF;
+				color:red;
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				var odiv=document.getElementById('div1');
+				var li=odiv.getElementsByTagName('li');
+				var div2=document.getElementById('div2');
+				var str=["你好一月","你好2月","哈哈3月","4","5","6","7","8","9","10","11","12"];
+				for(var i=0;i<li.length;i++){
+					li[i].index=i;
+					li[i].onmouseover=function(){
+						for(var i=0;i<li.length;i++){
+							li[i].className="";
+							}
+						this.className="active";
+						div2.innerHTML="<h2>"+(this.index+1)+"月份</h2>"+"<p>"+str[this.index]+"</p>";
+					}
+					
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<ul>
+				<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+					<li><a href="#">6</a></li>
+				<li><a href="#">7</a></li>
+					<li><a href="#">8</a></li>
+				<li><a href="#">9</a></li>
+				<li><a href="#">10</a></li>
+				<li><a href="#">11</a></li>
+					<li><a href="#">12</a></li>
+			</ul>
+			<div id="div2">
+			<p>
+				<h2></h2>
+				<span></span>
+			</p>
+			</div>
+		</div>
+	</body>
+</html>

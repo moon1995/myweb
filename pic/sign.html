@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+body{
+	margin:0px;
+	padding:0px;
+	background:url(images/img3_08.jpg);
+	color:#D1F4F8;
+	font-weight:bold;}
+	.div{
+		margin:auto 500px;
+		}
+		.form{
+			background:#3C688C;
+			}
+	.sign{
+		background:#C5EBF8;
+		margin-left:50px;}
+		input{
+			margin-top:10px;
+			color:#205076;
+			border-radius:10px;}
+			.div1{
+				width:500px;
+				padding-left:100px;}
+				span{
+					color:#f00;
+					margin-left:2px;
+					font-size:12px;}
+</style>
+<script type="text/javascript">
+function verify(){
+var $=function(id){
+		var id=document.getElementById(id);
+		return id;
+		}
+		var user=$("user");
+		var useryz=$("useryz");
+		var pwd=$("pwd");
+		var pwdyz=$("pwdyz");
+		var pwd_=$("pwd_");
+		var pwdyz2=$("pwdyz2");
+		if(user.value==""){
+			useryz.innerHTML="用户名不能为空";
+			event.preventDefault();
+			}
+			if(pwd.value==""){
+				pwdyz.innerHTML="密码不能为空";
+				event.preventDefault();
+				}
+				}
+function checkUser(){
+	var user=document.getElementById("user");
+	var useryz=document.getElementById("useryz");
+		if(user.value.length<=6){
+			useryz.innerHTML="用户名不能少于六个字符";
+			}
+			else{
+				useryz.innerHTML="";
+				}
+}
+function checkPwd(){
+		var pwd=document.getElementById("pwd");
+			var pwd_=document.getElementById("pwd_");
+				var pwdyz2=document.getElementById("pwdyz2");
+	if(pwd.value!=pwd_.value){
+		pwdyz2.innerHTML="两次密码必须相同";
+		pwd.value="";
+		pwd_.value=""
+		pwd.focus();
+		}else{
+			pwdyz2.innerHTML="";}
+	}
+function userFocus(){
+	var useryz=document.getElementById("useryz");
+	var pwdyz=document.getElementById("pwdyz");
+		var pwdyz2=document.getElementById("pwdyz2");
+				pwdyz.innerHTML="";
+				useryz.innerHTML="";
+				pwdyz2.innerHTML="";
+	}			
+
+</script>
+</head>
+
+<body>
+<div class="div">
+<img src="images/img3_01.jpg" />
+<div class="div1">
+<form action="" onsubmit="verify()">
+username：<br/>
+		<input type="text"  class="form" id="user" onblur="checkUser()" onfocus="userFocus()"/><span id="useryz"></span><br/>
+		password:<br/>
+		<input type="password"  class="form" id="pwd"/><span id="pwdyz"></span><br/><br/>
+        confirm password:<br/>
+        <input type="password"  class="form" id="pwd_" onblur="checkPwd()"/><span id="pwdyz2"></span><br />
+        <input type="submit" value="sign in"  class="sign" />
+</form>
+</div>
+</div>
+</body>
+</html>

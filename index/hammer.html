@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="js/hammer.min.js"></script>
+	<script src="js/zepto.min.js"></script>
+	<title>Document</title>
+	<script>
+	Zepto(function(){
+		
+		var hammer=new Hammer(document.getElementById("one"));
+		var i=0;
+		//单击事件tap  doubletap双击事件
+		// hammer.on("press",function(){
+		// 	alert("press事件被触发");
+		// });
+		//press事件长按事件  pressup长按抬起事件 鼠标抬起时触发
+		// hammer.on("press",function(){
+		// 	alert("press事件被触发");
+		// });
+		// swipe快速滑动事件
+		//开启垂直方向的swipe事件
+		//e.deltaTime事件时间
+		//e.velocityX滑动速率
+		//e.deltaX 移动的距离
+		//e.target 返回当前触发事件的DOM元素
+		//e.type 返回被事件名
+		hammer.on("swipe",function(e){
+			// $("#two").html("x轴移动的速率:"+e.deltaTime*e.velocityX+"X轴移动的距离"+e.deltaX+"<br>y轴移动的速率"+e.velocityY*e.deltaTime+"y轴移动的距离"+e.deltaY);
+			console.log(e.direction);
+			console.log($(e.target))
+		});
+	
+		hammer.on("rotate",function(){
+			console.log("pan事件被触发");
+		});
+    	hammer.get("rotate").set({direction:Hammer.DERECTION_ALL});
+	});
+	</script>
+	<style>
+	#one{
+		margin: 0 auto;
+		width:200px;
+		height:200px;
+		background:#f00;
+	}
+	#two{
+		margin: 0 auto;
+		width:200px;
+		height:200px;
+		background:#ff0;
+	}
+	</style>
+</head>
+<body>
+	<div id="one"></div>
+	<div id="two"></div>
+</body>
+</html>

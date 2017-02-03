@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#container{
+	overflow: hidden;
+	width:450px;
+	height:300px;
+}
+#list img{
+	float:left;
+}
+#buttons{
+	width:120px;
+	height:20px;
+	overflow: hidden;
+	position: absolute;
+	left:100px;
+	top:300px;
+}
+span{
+	background: #f00;
+	width:20px;
+	height:20px;
+	border-radius: 20px;
+	float:left;
+
+}
+.btn{
+	position:absolute;
+	left:500px;
+	height:200px;
+	
+	}
+</style>
+<script>
+	window.onload=function(){
+		var container=document.getElementById("container")
+		var list=document.getElementById("list");
+		var buttons=document.getElementById("buttons").getElementsByTagName("span");
+		var prev=document.getElementById("prev");
+		var next=document.getElementById("next");
+		function show(){
+			list.style.left=
+		}
+	}
+</script>
+</head>
+
+<body>
+<div id="container">
+	<div id="list" style="left:-450px">
+		<img src="../1.jpg" alt="1" />
+		<img src="../1.jpg" alt="1" />
+		<img src="../16.jpg" alt="2" />
+		<img src="../12.jpg" alt="3" />
+		<img src="../13.jpg" alt="4" />
+		<img src="../2.jpg" alt="5" />
+		<img src="../15.jpg" alt="6" />
+		<img src="../15.jpg" alt="6" />
+		
+	
+	</div>
+	<div id="buttons">
+		<span index="1"></span>
+		<span index="2"></span>
+		<span index="3"></span>
+		<span index="4"></span>
+		<span index="5"></span>
+		<span index="6"></span>
+	</div>
+	<div class="btn">
+<a href="javascript:;" id="prev" class="arrow"> &lt;</a>
+	<a href="javascript:;" id="next" class="arrow">&gt;</a></div>
+
+</div>
+</body>
+</html>

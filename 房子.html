@@ -1,0 +1,72 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+canvas{
+	border:1px solid #f00;}
+</style>
+<script>
+window.onload=function(){
+var canvas1=document.getElementById("canvas1");
+   var context=canvas1.getContext("2d");
+     context.fillStyle="#BBCC44";
+   context.strokeStyle="#f00";
+   context.lineWidth=2;
+	context.save();
+	context.beginPath();
+	context.translate(20,11);
+	context.moveTo(260,30);
+	context.lineTo(260,10);
+	context.lineTo(290,10);
+	context.lineTo(290,50);
+	context.fill();
+	context.stroke();
+	 context.closePath();
+      context.beginPath();
+	  context.restore();
+	 context.moveTo(10,100);
+   context.lineTo(200,0);
+   context.lineTo(390,100);
+   context.lineTo(10,100);
+   context.lineTo(10,300);
+   context.lineTo(391,300);
+   context.lineTo(391,100);
+	context.fill();
+	context.stroke();
+      context.closePath();
+      context.beginPath();
+  	context.fillStyle="#090";
+	context.moveTo(40,150);
+	context.lineTo(40,200);
+	context.lineTo(100,200);
+	context.lineTo(100,150);
+	context.lineTo(40,150);
+	context.moveTo(40,175);
+	context.lineTo(100,175);
+	context.moveTo(70,150);
+	context.lineTo(70,200);
+	context.fill();
+	context.stroke();
+	context.closePath();
+	context.beginPath();
+	context.moveTo(300,300);
+	context.lineTo(300,200);
+	context.lineTo(350,200);
+	context.lineTo(350,300);
+	context.stroke();
+	context.closePath();
+	context.beginPath();
+	context.arc(340,250,10,0,2*Math.PI,false);
+	context.stroke();
+	context.closePath();
+}
+</script>
+</head>
+
+<body>
+<canvas id="canvas1" height="500" width="500">
+
+</canvas>
+</body>
+</html>

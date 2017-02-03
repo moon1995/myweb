@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			#yzerror{
+				display:none;
+			}
+			span{
+				display:none;
+				width:50px;
+				height:25px;
+				
+			}
+			#ruo{
+				color:red;
+			}
+			#zh{
+				color:green;
+			}
+		</style>
+		<title></title>
+		<script>
+			window.onload=function(){
+				var $=function(id){
+					var id=document.getElementById(id);
+					return id;
+				}
+				var pwd=$("pwd");
+				var yz=$("yz");
+				var yzerror=$("yzerror");
+				var ruo=$("ruo");
+				var zh=$("zh");
+				var qq=$("qq");
+				var regStr=/[a-zA-Z]/;
+				var regNum=/[0-9]/;
+				var fStrNum=/\W/;
+				pwd.onkeyup=function(){
+					if(pwd.value.length<=16){
+						yz.style.display="block";
+						yzerror.style.display="none";
+					if((pwd.value.length>=6 && regNum.test(pwd.value))||( pwd.value.length>=6 && regStr.test(pwd.value))){
+						ruo.style.cssText="display:inline-block;background:#FFDEAD ";
+						ruo.innerHTML="弱";
+						zh.style.display="none";
+					}else if(pwd.value.length<6){
+						ruo.style.display="none";
+						zh.style.display="none";
+						qq.style.display="none";
+					}
+					if(pwd.value.length>=6 && regNum.test(pwd.value) &&　regStr.test(pwd.value)){
+						ruo.style.cssText="display:inline-block;background:#FFDEAD";
+						ruo.innerHTML="&nbsp";
+						zh.style.cssText="display:inline-block;background:#FF9900";
+						
+					}else if(pwd.value.length>=6 && regStr.test(pwd.value)){
+						ruo.style.cssText="display:inline-block;background:#FFDEAD";
+						ruo.innerHTML="弱";
+						zh.style.display="none";
+					}
+					if(pwd.value.length>=6 && regNum.test(pwd.value) && regStr.test(pwd.value) && fStrNum.test(pwd.value)){
+		            	  ruo.style.cssText="display:inline-block;background: #090;";
+		            	  ruo.innerHTML="&nbsp;";
+		            	  zh.style.cssText="display:inline-block;background: #090;";
+		            	  zh.innerHTML="&nbsp";
+		            	  qq.style.cssText="display:inline-block;background: #090;";
+					}else if((pwd.value.length>=6 &&　regStr.test(pwd.value) &&　fStrNum.test(pwd.value)) || (pwd.value.length>=6 &&　regNum.test(pwd.value) &&fStrNum.test(pwd.value))){
+						ruo.style.cssText="display:inline-block;background:#FFDEAD";
+						ruo.innerHTML="&nbsp";
+						zh.style.cssText="display:inline-block;background:#FF9900";
+						qq.style.display="none";
+						}else if(pwd.value.length>=6 &&　regStr.test(pwd.value) &&　regNum.test(pwd.value)){
+							ruo.style.cssText="display:inline-block;background: #090;";
+		            	  ruo.innerHTML="&nbsp;";
+		            	  zh.style.cssText="display:inline-block;background: #090;";
+		            	  zh.innerHTML="中";
+		            	  qq.style.display="none";
+						}
+					}else{
+						yz.style.display="none";
+						yzerror.style.display="block";
+					}
+				}
+}
+
+		</script>
+	</head>
+	<body>
+		<form name="login">
+			密码：<input type="password" id="pwd" />
+		<div id="yz">6-16个字符区分大小写<span id="ruo">弱</span><span id="zh">中</span><span id="qq">强</span></div>
+	    <div id="yzerror">密码长度应为16个字符</div>
+	    </form>
+	</body>
+</html>

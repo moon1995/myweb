@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="x5-fullscreen" content="true">
+		<meta name="full-screen" content="yes">
+		<title></title>
+		<link rel="stylesheet" href="css/index.css">
+		<script src="js/hammer.min.js"></script>
+		<script src="js/zepto.min.js"></script>
+		<script src="js/animate.js"></script>
+		<script src="js/select.js"></script>
+		<script src="js/move.js"></script>
+		<script>
+		    Zepto(function(){
+		    	var bannerSmall = document.getElementById("banner-small");
+		    	var tips = document.getElementById("tips");
+		    	var hammer = new Hammer(bannerSmall);
+		    	var left=0;
+		    	var deviceWidth = $("#banner-small").width();
+		    	var de = $("#banner-small img").width();
+		    	var a,l = $("#banner-small img").length-1;
+		    	//tips高亮
+		    	var highlight =function(index){
+		    			$("#tips span").removeClass("on").eq(index).addClass("on")	
+		    	};
+		    	//小图点击事件触控函数
+		    	var bannerClick = function(e){
+		    		var clickLeft = ($(e.target).parent().index())*deviceWidth;
+		    		if($("#banner-small").hasClass("banner-big")){return;}
+		    			$("body").addClass("disable");
+		    			$("#box").css({"background-color":"rgba(0,0,0,.6)"});
+		    			$("#tips").css({"dispaly":"-webkit-flex","display":"flex"});
+		    			highlight($(this).index());
+						$("#banner-small").removeClass("banner-small").addClass("banner-big");
+		    			$("#banner-small").css({"left":-clickLeft});
+		    			$("#banner-small img").css({"padding":"100vh 0"})
+		    			$("#banner-small img").animate({"width":$(this).width()},300);	
+		    			$("#banner-small figure").off("click");
+		    			$("#banner-small figure").on("click",bannerClick2);
+		    	}
+		    	//大图点击事件处理函数
+		    	var bannerClick2 = function(e){
+		    			$("body").removeClass("disable");
+		    			$("#box").css({"background-color":"rgba(255,255,255,1)"})
+		    			$("#tips").css({"display":"none"});
+		    			$("#banner-small").removeClass("banner-big").addClass("banner-small");
+		    			$("#banner-small").css({"left":0,"width":"100vw"});
+		    			$("#banner-small img").css({"padding":0});
+		    			$(this).siblings().children().css({"width":"25vw"});
+		    			$(this).children().animate({"width":"25vw","position":"absolute"},300,function(){
+		    				$(this).css("position","static");
+		    			});
+		    			$("#banner-small figure").off("click");
+		    			$("#banner-small figure").on("click",bannerClick);
+		    	};
+		    	//小图绑定点击事件
+		    	$("#banner-small figure").on("click",bannerClick);
+							//hammer panstart事件处理
+		    	 	hammer.on("panstart",function(){
+		    	 		 left=$("#banner-small").offset().left;
+		    	 	});
+		    	//hammer left right 事件处理
+		    	 	hammer.on("panleft panright",function(e){
+		    	 		a = e.direction;
+		    	 		if($("#banner-small").offset().left > 0 || $("#banner-small").offset().left < -l*deviceWidth){
+		    	 			return false;
+		    	 		}else{
+		    	 			$("#banner-small").css({"left": e.deltaX+left});
+		    	 		}
+		    	 		
+		    		});
+		    		
+		    		//panend事件处理函数
+		    		var panEnd = function(e){
+		    			if(Math.abs(e.deltaX) < deviceWidth/2){
+		    				$("#banner-small").animate({"left": -($(e.target).parent().index())*deviceWidth},150);
+		    				return;
+		    			}
+		    			if($(e.target).parent().index() == 0 && a == 4){
+		    				$("#banner-small").animate({"left": 0},150);
+		    				return;
+		    			}
+		    			if($(e.target).parent().index() == 4 && a == 2){
+		    				$("#banner-small").animate({"left": -($(e.target).parent().index())*deviceWidth},150);
+		    				return;
+		    			}
+		    			if(a == 2){
+		    				var index = ($(e.target).parent().index()+1)*deviceWidth;
+		    					highlight($(e.target).parent().index()+1);
+		    	 			$("#banner-small").animate({"left": -index},150);
+		    	 		}
+		    	 		if(a == 4){
+		    	 			var index = ($(e.target).parent().index()-1)*deviceWidth;
+		    	 				highlight($(e.target).parent().index()-1);
+		    	 			$("#banner-small").animate({"left": -index},150);
+		    	 		}
+		    		}
+		    		//绑定panend事件
+		    		hammer.on("panend",panEnd);
+	
+		    		
+		    		var hammer1 = new Hammer(bannerSmall);
+		    		var swipeEnd = function(e){
+		    	     
+		    			if($(e.target).parent().index() == 0 && e.direction == 4){
+		    				$("#banner-small").animate({"left": 0},150);
+		    				return;
+		    			}
+		    			if($(e.target).parent().index() == 4 && e.direction== 2){
+		    				$("#banner-small").animate({"left": -($(e.target).parent().index())*deviceWidth},150);
+		    				return;
+		    			}
+		    			if(e.direction == 2){
+		    				var index = ($(e.target).parent().index()+1)*deviceWidth;
+		    					highlight($(e.target).parent().index()+1);
+		    	 			$("#banner-small").animate({"left": -index},150);
+		    	 		}
+		    	 		if(e.direction == 4){
+		    	 			var index = ($(e.target).parent().index()-1)*deviceWidth;
+		    	 				highlight($(e.target).parent().index()-1);
+		    	 			$("#banner-small").animate({"left": -index},150);
+		    	 		}
+		    	 		
+		    		} 
+		    		hammer1.on("swipeleft swiperight",swipeEnd);
+		    		
+		    		
+		    });
+
+		</script>
+	</head>
+	<body>
+		<section id="box"  class="box">
+			<section id="banner-small" class="banner-small">
+			<figure class="banner-img">
+				<img src="img/1.jpg" alt="">
+			</figure>
+			<figure class="banner-img">
+				<img src="img/2.jpg" alt="">
+			</figure>
+			<figure class="banner-img">
+				<img src="img/3.jpg" alt="">
+			</figure>
+			<figure class="banner-img">
+				<img src="img/4.jpg" alt="">
+			</figure>
+			<figure class="banner-img">
+				<img src="img/5.jpg" alt="">
+			</figure>
+			</section>
+			<section id="tips" class="tips">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</section>
+		</section>
+	</body>
+</html>

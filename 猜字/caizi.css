@@ -1,0 +1,31 @@
+body{
+	background:url(12.jpg);
+	
+}
+#div{
+	margin:auto 500px;
+}
+input{
+	border:1px solid #C17200;
+	background:transparent;
+}
+img{
+	border:10px solid #C17200;
+}
+a{
+	width:100px;
+	height:50px;
+	position:absolute;
+	right:0%;
+	bottom:0%;
+	display:block;
+	background:url(14.jpg);
+	color:#fff;
+	text-align: center;
+	line-height:50px;
+	text-decoration:none;
+}
+a:hover{
+	background:url(13.jpg);
+	color:#FFFF00;
+}

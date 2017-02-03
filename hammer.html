@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+			<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script src="hammer.min.js"></script>
+		<script>
+			window.onload=function(){
+				var div=document.getElementById("div");
+				var hammer=new Hammer(div);
+				var hammer1=new Hammer(div);
+				var oldleft=0;
+				hammer.on("panstart",function(ev){
+				oldleft=div.offsetLeft;
+				
+				});
+				hammer.on("panleft panright",function(ev){
+				div.style.left=oldleft+ev.deltaX+"px";
+				});
+				hammer.on("panend",function(ev){
+				if(ev.deltaX>50){
+					div.style.left=window.innerWidth-100+"px";
+					console.log(ev.deltaX);
+				}else{
+					div.style.left=0;
+				}
+				});
+				hammer1.on("panmove",function(ev){
+				console.log(ev.deltaTime);
+				});
+				
+			}
+		</script>
+		<style>
+			div{
+	width:200px;
+	height: 100px;
+	background:#f90;
+				position:absolute;
+				left:0;
+				
+			}
+			
+		</style>
+	</head>
+	<body>
+
+		<div id="div">1</div>
+	
+	
+	</body>
+</html>

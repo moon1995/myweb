@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+body{
+	margin:0;
+	padding:0;
+	font-size:5px;
+	text-align:center;}
+#div1{
+	height:165px;
+	width:90px;
+	overflow:hidden;
+	float:left;
+	position:relative;
+	left:30%;
+	top:200px;
+	border:1px solid black;
+	}
+	ul{
+		position:absolute;
+		left:0;
+		top:0;
+		margin:0;
+		padding:0;
+		list-style:none;
+		}
+		li{
+			float:left;
+			}
+			#div2{
+	position: absolute;
+	left: 416px;
+	top: 349px;
+				}
+		#div2 div{
+			width:10px;
+			height:10px;
+			line-height:10px;
+			background:transparent;
+			border:1px solid #f90;
+			margin:2px;
+			float:left;
+			}	
+</style>
+<script>
+
+window.onload=function(){
+	var speed=-2;
+	var adiv=document.getElementById("div1");
+	var ul=adiv.getElementsByTagName("ul")[0];
+	var li=ul.getElementsByTagName('li');
+	var aa=document.getElementsByTagName('a');
+	var div2=document.getElementById('div2');
+	var div=div2.getElementsByTagName('div');
+	var timer=null;
+	ul.innerHTML=ul.innerHTML+ul.innerHTML;
+	ul.style.width=li[0].offsetWidth*li.length+'px';
+	
+	function show(){
+		if(ul.offsetLeft<=-ul.offsetWidth/2){
+			ul.style.left=0+'px';
+			}
+		if(ul.offsetLeft>0.1){
+				ul.style.left=-ul.offsetWidth/2+'px';
+				}
+		if(ul.offsetLeft%100==0&&speed==-2){
+				var n=-ul.offsetLeft/100;
+				for(var i=0;i<div.length;i++){
+					div[i].style.background="";}
+					div[n].style.background="#F90";
+				clearInterval(timer);
+				setTimeout(function(){
+					timer=setInterval(show,30);
+				},1000);
+			}
+		if(ul.offsetLeft%100==0&&speed==2){
+		var nn=ul.offsetLeft/100
+		clearInterval(timer);
+				setTimeout(function(){
+					timer=setInterval(show,30);
+				},1000);}
+				ul.style.left=ul.offsetLeft+speed+"px";
+}
+  timer=setInterval(show,30);
+	
+aa[0].onclick=function(){
+	speed=-2;
+	}
+		
+aa[1].onclick=function(){
+	speed=2;
+}
+
+}
+</script>
+</head>
+
+<body>
+<a href="#">zuo</a>
+<a href="#">right</a>
+<div id="div1">
+
+<ul>
+<li><img src="ba1.jpg" /></li>
+<li><img src="ba3.jpg" /></li>
+<li><img src="ba2.jpg" /></li>
+<li><img src="ba4.jpg" /></li>
+</ul>
+
+</div>
+<div id="div2">
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<div>4</div>
+</div>
+</body>
+</html>

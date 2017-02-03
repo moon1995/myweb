@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		body,ul{
+			margin:0px;
+			padding:0px;
+		}
+			#div2 span{
+				border:1px solid #ff0;
+				border-radius: 10px;
+				display:inline-block;
+				width:10px;
+				height:10px;
+				margin-left:5px;
+			}
+			ul{
+				list-style:none;
+				position:relative;
+			}
+			li{
+				float:left;
+			}
+			img{
+				width:150px;
+				height:100px;
+				vertical-align:top;
+			}
+			#div1{
+				border:10px solid #d90;
+				overflow: hidden;
+				position:relative;
+				left:100px;
+				top:100px;
+				width:150px;
+			}
+			#left{
+				position:relative;
+				left:100px;
+				background:#fff;
+				display:inline-block;
+				width:30px;
+				text-align:center;
+				cursor:pointer;
+			}
+			#right{
+				position:relative;
+				left:200px;
+				background:#fff;
+				display:inline-block;
+				width:30px;
+				text-align:center;
+				cursor:pointer;
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				var div1=document.getElementById("div1");
+			    var pic=document.getElementsByTagName("img")[0];
+			    var spans=document.getElementById("div2").getElementsByTagName("span");
+				var oul=document.getElementsByTagName("ul")[0];
+				var oli=document.getElementsByTagName("li");
+				var left=document.getElementById("left");
+				var right=document.getElementById("right");
+				var time=null;
+				var speed=-2;
+				var n=0;
+				var m=0;
+				oul.innerHTML=oul.innerHTML+oul.innerHTML;
+				oul.style.width=oli[0].offsetWidth*oli.length+"px";
+			function show(){
+				oul.style.left=oul.offsetLeft+speed+'px';
+					if(-oul.offsetLeft%150==0){
+				n=parseInt(-oul.offsetLeft/150);
+				for(var j=0;j<spans.length;j++){
+				spans[j].style.background="";
+				}
+				spans[n].style.background="#f00";
+					clearInterval(time);
+						time=setTimeout(function(){
+							time=setInterval(aa,5);
+						},3000);
+				}
+				for(var i=0;i<spans.length;i++){
+						spans[i].index=i;
+					spans[i].onmouseover=function(){
+						for(var k=0;k<spans.length;k++){
+					spans[k].style.background="";
+					}
+					oul.style.left=-this.index*oli[0].offsetWidth+"px";
+						this.style.background="#f00";
+					clearInterval(time);
+						}
+				spans[i].onmouseout=function(){
+					time=setInterval(aa,5);
+				}
+			}
+			}
+			show();
+			function aa(){
+					
+				if(oul.offsetLeft<=-oul.offsetWidth/2){
+					oul.style.left='0';
+				}
+				m=oul.offsetLeft;
+				left.onclick=function(){
+					if(oul.offsetLeft==0){
+						oul.style.left=-oul.offsetWidth/2+150+"px";
+					}else if(oul.offsetLeft<0){
+						oul.style.left=Math.ceil(-(m-1))*150+'px';
+					}
+					else if(oul.offsetLeft==-oul.offsetWidth){
+						oul.style.left="0";
+					}
+				}
+			
+
+			}
+			time=setInterval(aa,5);
+			
+}
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+		<ul>
+				<li><img src="1.jpg" />	</li>
+				<li><img src="2.jpg" />	</li>
+				<li><img src="3.jpg" />	</li>
+				<li><img src="4.jpg" />	</li>				
+	</ul>
+		</div>
+		<span id="right">&gt;</span>
+		<span id="left">&lt;</span>	
+		<div id="div2"> 
+			<span style="background:#f00"></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			
+		</div>
+	</body>
+</html>

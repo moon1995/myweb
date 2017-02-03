@@ -1,0 +1,90 @@
+@font-face{
+	font-family: "微软雅黑";
+	src:url("msyh.ttf") format("TrueType");
+}
+*{
+	margin: 0px;
+	padding: 0px;
+}
+html{
+	font-size: 100px;
+	
+}
+header{
+	width: 6.4rem;
+	height: 1rem;
+	line-height: 1rem;
+	font-size: 0.4rem;
+	font-family: "微软雅黑";
+	text-align: center;
+	background:-webkit-linear-gradient(top, rgba(200, 200, 200, 1) 0%, rgba(233, 233, 233, 1) 50%, rgba(200, 200, 200, 1) 100%);  repeat-x;
+
+	font-weight: bold;
+}
+/*滚动图开始*/
+#banner{
+	width: 6.4rem;
+	height: 2.75rem;
+	overflow:hidden;
+	marign:0px;
+	position: relative;
+}
+#banner>#contents{
+	width: 32rem;
+	height:2.75rem;
+	margin:0;
+	padding:0;
+	position: absolute;
+}
+#banner>#contents>img{
+	width: 6.4rem;
+	height:2.75rem;
+	margin:0rem;
+	border:0rem;
+	float: left;
+	display: block;
+}
+/*.banner>img{
+	width: 6.4rem;
+	height: auto;
+}*/
+
+/*滚动图结束*/
+.content{
+   width: 6.4rem;
+   height: 9rem;
+   background: url("../img/indexbg.jpg") center top;
+   background-size: 6.4rem auto;
+
+}
+.content>section{
+	width: 5.4rem;
+	height: 2rem;
+	background: rgba(0,0,0,0.5);
+	margin:0.3rem 0.5rem;
+	font-size: 0.2rem;
+}
+.content>section>p{
+	float: left;
+	width: 2.4rem;
+	height: 1.4rem;
+	float: right;
+	margin: 0.24rem 0.12rem;
+}
+.content>section img{
+	width: 2.4rem;
+	height: 1.4rem;
+	border:solid 0.2rem #rgba(233,233,233,1);
+	margin: 0.24rem 0.12rem;
+	float: right;
+}
+.content>section>p>span{
+	font-family: "微软雅黑";
+	font-size: 0.2rem;
+	color: #fff;
+}
+.content>section>p>span.t{
+	font-size: 0.35rem;
+	font-weight: bold;
+	margin-bottom: 0.2rem;
+}

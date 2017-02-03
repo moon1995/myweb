@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="caizi.css" rel="stylesheet">
+		<script>
+		window.onload=function(){
+			var div=document.getElementById("div");
+			var div1=document.getElementById("div1");
+			var text1=document.getElementById("text1");
+			var btn=document.getElementById("btn");
+			var str=["平分秋色","捕风捉影","貌合神离","官官相护","归心似箭","小题大做","脱口而出","朝三暮四","蒸蒸日上","胆大包天"];
+			var img=document.getElementById("img");
+			var j=0;
+			btn.onclick=function(){
+					j++;
+					if(text1.value==str[j-1]){
+						text1.value="";
+						
+				var r=confirm("恭喜您猜对了！\n是否继续游戏？");
+				if(r==true){
+					div1.appendChild(img);
+						var url1=j+1+".jpg";
+				img.setAttribute("src",url1);
+				}
+				if(r=false){
+					if(j<6){
+					alert("您获得了"+j*10+"分,仍需努力！");
+					}else if(j<9){
+					alert("您获得了"+j*10+"分,成绩不错哦，马上就要满分了");	
+					}else{
+						alert("您获得了"+j*10+"分,非常优秀哦");	
+					}
+				}
+			if(j>9){
+				j=0;
+				div.innerHTML="游戏已结束，请点击退出按钮";
+				
+			}
+				
+		}else{
+				alert("您猜错了");
+				j--;
+			}
+			}
+}
+			
+		</script>
+	</head>
+	<body>
+		<div id="div">
+		<div id="div1">
+			<img src="1.jpg" id="img" />	<br/>	
+		
+		</div>
+	<input type="text" id="text1" />
+		<input type="button" value="提交" id="btn">
+		</div>
+			<a href="#">退出游戏</a>
+	</body>
+</html>

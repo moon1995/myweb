@@ -1,0 +1,176 @@
+/* CSS Document */
+body,ul,li,h2,h3,p,textarea,.pic{
+		margin:0;
+	padding:0;}
+	body{
+		font-family:Arial;
+		font-weight:200;
+		line-height:2em;
+		color:#555;
+		}
+.span2{
+	font-size:10px;
+	display:inline-block;
+}
+.top{
+	background:#f5f5f5;
+	position:relative;
+	border-bottom:1px solid #dcdcdc;
+	font-size:10px;
+	padding:5px 200px;
+	height:20px;
+	line-height:20px;
+	}
+.top ul{
+	
+	list-style:none;
+	position:absolute;
+	right:10%;
+	top:10%;
+}
+.top li{
+	float:left;
+	 margin-left:20px;}
+.top li a{
+	font-size:12px;
+	color:black;
+	text-decoration:none;}
+	.top li a:hover{
+		color:blue;}
+.outside{
+	width:1000px;
+	position:relative;
+	left:50%;
+	overflow:hidden;
+	margin-left:-500px;
+	padding:0px 20px;
+	}
+.pic{
+	background:url(logo.jpg) no-repeat;
+	width:100%;
+	height:100px;
+	border-bottom:2px solid #4aa7dc;
+
+	}
+.middle{
+	background:#f6f5f5;
+	padding:30px 50px;;
+	border-left:1px solid #dcdcdc;
+	border-right:1px solid #dcdcdc;
+	border-bottom:1px solid #dcdcdc;
+	}
+.span1{
+	color:#999;
+	font-size:12px;
+	font-weight:normal;
+	line-height:1.5em;
+	display:inline-block;
+	
+	}
+	.span2{
+		color:#999;
+	font-size:12px;
+	font-weight:normal;
+	line-height:1.5em;}
+h3,h2{
+	color:#333;}
+textarea{
+	border:1px solid #30729e;
+	width:800px;
+	height:200px;
+	overflow:hidden;
+	font-size:100px;}
+
+
+.background{
+	background:#Eaf3f5 url(give_advice.png) no-repeat -15px -3px;
+	
+	padding-left:30px;
+	
+	display:inline-block;
+	color:#1b64ac;
+	border:1px solid #30729e;
+	text-align:center;
+	line-height:24px;
+	font-weight:bolder;
+	font-size:16px;
+ 	margin-right:20px;
+	}
+
+
+.qq{
+	background:url(give_advice.png) no-repeat 0 -65px;
+	width:29px;
+	height:30px;
+	display:inline-block;
+	}
+	.father1{
+		
+		position:relative;
+		margin:20px 0px 40px 0px;
+
+		}
+.num1,.num2,.num3{
+
+	position:relative;
+	left:30px;
+	top:0px;
+	margin-left:20px;
+	height:50px;
+	width:500px;
+	display:inline-block;
+}
+input{
+	border:1px solid #30729e;
+	width:200px; }
+.phone{
+	display:inline-block;
+	background:url(give_advice.png) no-repeat -47px -66px;
+	width:29px;
+	height:33px;}
+.letter{
+	display:inline-block;
+	background:url(give_advice.png) no-repeat -91px -65px;
+	width:29px;
+	height:30px;
+	}
+	.advice{
+		width:100px;
+		height:25px;
+		line-height:25px;
+		background:#3c93d5;
+		color:white;
+		border:1px solid #1374be;
+		text-align:center;
+		font-size:16px;
+		font-weight:900;
+		margin-left:100px;}
+.foot{
+	text-align:center;
+	border-top:2px solid #4aa7dc;
+	margin-top:30px;
+	display:inline-block;
+	width:100%;
+	}
+.foot p{
+	color:#666;
+	}
+.footer{
+	color:#999898;}
+.color{
+	color:#005eb0;
+	font-weight:900;}
+
+.div1{
+	float:right;
+	}
+	.div2{
+
+	width:800px;}
+.div{
+margin:40px 0px;}
+.h3{
+	font-weight:800;
+	color:black;
+	font-size:blod;}
+	

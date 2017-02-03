@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function show(a){
+				var aa=a.length;
+				var temp;
+				for(var i=1;i<aa;i++){
+					for(var j=0;j<aa-i;j++){
+						if(a[j]>a[j+1]){
+							temp=a[j+1];
+							a[j+1]=a[j];
+							a[j]=temp;
+						}
+					}
+				}
+				return a;
+			}
+			alert(show([10,9,4,8,7]))
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

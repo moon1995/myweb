@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+			<title></title>
+			<script src="hammer.min.js"></script>
+			<script>
+setInterval(function(){
+					document.getElementsByTagName("html")[0].style.fontSize=window.innerWidth*0.5+"px";
+							},30);
+			window.onload=function(){
+				var pic=document.getElementById("pic");
+				var hammertime=new Hammer(pic);
+				hammertime.on("pan",function(ev){
+					console.log(ev.deltaX+"px")
+				})
+			}
+								</script>
+		<style>
+			div{
+				font-size:0.06rem;
+			}
+			img{
+				width:1rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div >文字</div>
+		<div><img src="03.jpg" id="pic"></div>
+	</body>
+</html>

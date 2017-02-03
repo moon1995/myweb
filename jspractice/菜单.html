@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>二级菜单</title>
+		<style>
+			ul{
+				margin:0;
+				padding: 0;
+				list-style:none;
+				float:left;
+				text-align:center;
+			}
+			ul .l2{
+			background:#FF9900;
+			width:100px;
+			height:20px;
+			text-align:center;
+			}
+			ul a{
+				color:#FFF;
+				line-height:20px;
+				text-decoration:none;
+			}
+			ul li{
+				background:navajowhite;
+				width:100px;
+			}
+			ul ul{
+				display:none;
+				text-align:center;
+			}
+			.block{
+				display:block;
+			}
+			.l2 ul a:hover{
+				color:#000;
+			}
+		</style>
+		<script src="add.js"></script>
+		<script>
+			window.onload=function(){
+				var oul=document.getElementsByTagName("ul");
+				if(-[1,]){
+				var oli=document.getElementsByName("l1");
+				}else {
+					
+					var oli=document.getElementsByTagName("li");
+					
+				}
+				for(var i=0;i<oli.length;i++){
+					add(oli[i],"mouseover",function(){
+						this.childNodes[2].className="block";
+					});
+					add(oli[i],"mouseout",function(){
+							this.childNodes[2].className="";
+					});
+					}
+				}
+		</script>
+	</head>
+	<body>
+		<ul id="u1">
+			<li class="l2" name="l1"><a href="#">产品经营</a>
+			<ul>
+				<li><a href="http://www.baidu.com">菜单一</a></li>
+				<li><a href="#">菜单二</a></li>
+				<li><a href="#">菜单三</a></li>
+				<li><a href="#">菜单四</a></li>
+				</ul>
+			
+		</ul>
+		</li>
+		<ul id="u2">
+			<li name="l1"  class="l2"><a href="#">产品销售</a>
+			<ul>
+				<li><a href="#">菜单一</a></li>
+				<li><a href="#">菜单二</a></li>
+				<li><a href="#">菜单三</a></li>
+				<li><a href="#">菜单四</a></li>
+				</ul>
+			</li>
+		</ul>
+		<ul id="u3">
+			<li name="l1"  class="l2"><a href="#">产品营销</a>
+			<ul>
+				<li><a href="#">菜单一</a></li>
+				<li><a href="#">菜单二</a></li>
+				<li><a href="#">菜单三</a></li>
+				<li><a href="#">菜单四</a></li>
+				</ul>
+			</li>
+		</ul>
+			
+		
+	</body>
+</html>

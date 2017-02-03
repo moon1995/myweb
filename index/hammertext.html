@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>Document</title>
+	<script src="js/hammer.min.js"></script>
+	<script src="js/move.js"></script>
+	<script>
+		window.onload=function(){
+			var app=document.getElementById("app");
+			var hammer=new Hammer(app);
+			var oldLeft=0;
+			// hammer.on("panstart",function(e){
+			// 	oldLeft=app.offsetLeft;
+				
+			// });
+			// hammer.on("panmove",function(e){
+				
+			// 	app.style.left=oldLeft+e.deltaX+"px";
+			// });
+			// hammer.on("panend",function(e){
+			// 	if(e.deltaX>50){
+					
+			// 		Move(app,{"left":414});
+			// 	}else{
+					
+			// 		Move(app,{"left":0});
+			// 	}
+			// });
+			var hammer1=new Hammer(app);
+			
+			
+			hammer1.on("panmove",function(e){
+				//左划
+				console.log(e.target)
+				console.log(e.srcEvent);
+			})
+		};
+	</script>
+</head>
+
+<style>
+	div {
+		width: 100px;
+		height: 100px;
+		background: #f00;
+		position: absolute;
+		left: 0;
+	}
+</style>
+<body>
+	<div id="app">
+		
+	</div>
+</body>
+</html>

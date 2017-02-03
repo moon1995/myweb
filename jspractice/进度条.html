@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		#div1{
+			position:relative;
+			
+			border:1px solid #f00;
+			width:800px;
+			height:50px;
+			margin:100px auto;
+		}
+		#div2{
+			background:#f00;
+			text-align:center;
+			
+			height:100%;
+			
+		}
+		</style>
+		<script>
+			window.onload=function(){
+			var div2=document.getElementById("div2");
+			
+			var timer=setInterval(function(){
+				div2.style.width=parseInt(div2.style.width)+1+"%";
+				
+                 if(div2.style.width=="100%"){
+                 	clearInterval(timer);
+                 }
+			},30)
+		}
+
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="div2" style="width:0%;">
+				进度条
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	background:#d90;}
+ul li{
+	width:100px;
+	height:20px;
+	
+	}
+	.left{
+		float:left;
+		background:#f00;}
+		.left ul{
+			display:none;
+			position:relative;}
+			.grandson{
+				position:absolute;
+				left:100px;
+				top:-20px;
+				}
+</style>
+<script src="../jquery-1.11.2.js"></script>
+<script>
+$(function(){
+	$(".left").mouseover(function(){
+		$(this).css("background","#f00").children()//一级Ul
+		.slideDown().end().siblings().css("background","#ff0").children().slideUp();
+		}).children().children().mouseover(function(){
+			$(this).css("background","#f00").siblings().css("background","#d90");
+			}).end().children(".son").mouseover(function(){
+				$(this).children(".grandson").slideDown().children().mouseover(function(){
+					$(this).css("background","#f00").siblings().css("background","#d90");
+					})
+				}).siblings().mouseover(function(){
+					$(".son").children().slideUp();
+					});
+});
+</script>
+</head>
+
+<body>
+<div>
+<ul>
+<li class="left">首页
+<ul >
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+</ul>
+</li>
+<li class="left">首页2
+<ul>
+<li>1</li>
+<li class="son">1>>>>>
+<ul class="grandson">
+<li>孙子菜单1</li>
+<li>孙子菜单2</li>
+<li>孙子菜单3</li>
+<li>孙子菜单4</li>
+</ul>
+</li>
+<li>1</li>
+<li>1</li>
+</ul>
+</li>
+<li class="left">首页3
+<ul>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+</ul>
+</li>
+</ul>
+</div>
+</body>
+</html>

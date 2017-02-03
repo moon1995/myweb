@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+window.onload=function(){
+var aa=document.getElementsByTagName("a");
+for(var i=0;i<aa.length;i++){
+aa[i].onmouseover=function(){
+var This=this;
+var time=setInterval(function(){
+This.style.width=This.offsetWidth+8+"px";
+if(This.offsetWidth>=160){
+clearInterval(time);}},30)
+}
+aa[i].onmouseout=function(){
+var This=this;
+var time=setInterval(function(){
+This.style.width=This.offsetWidth-8+"px";
+if(This.offsetWidth<=120){
+This.style.width="120px";
+clearInterval(time);}},30)
+}
+}
+}
+</script>
+
+<style>
+ul{
+list-style:none;
+border-bottom:5px solid #f60;
+padding-bottom:30px;
+}
+a{
+height:30px;
+width:120px;
+line-height:30px;
+display:block;
+float:left;
+background:#ccc;
+margin-left:20px;
+text-decoration:none;
+color:white;
+text-align:center;
+}
+a:hover,.a1{
+background:#f60;}
+</style>
+
+</head>
+<body>
+<div class="div1">
+<ul class="ul1">
+<li><a href="#" class="a1">首    页</a></li>
+<li><a href="#">联系我们</a></li>
+<li><a href="#">电    话</a></li>
+<li><a href="#">联系方式</a></li>
+</ul></div>
+</body>
+</html>
+ 

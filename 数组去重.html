@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<script>
+		Array.prototype.reorder=function(){
+			this.sort();
+			var res=[this[0]];
+		for(var i=0;i<this.length;i++){
+			var repeat=false;
+			for(var j in res){
+				if(this[i]==res[j]){
+					repeat=true;
+					break;
+				}
+			
+			}
+				if(repeat==false){
+					res.push(this[i]);
+				}
+		}
+		return res;
+		}
+		var arr=[1,13,1,5,68,5,1];
+		alert(arr.reorder());
+	</script>
+	</head>
+	<body>
+	</body>
+</html>

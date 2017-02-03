@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>工厂模型</title>
+		<style>
+		body{
+			font-size:14px;
+		}
+			#div1{
+				background:#f90;
+				width:200px;
+				height:300px;
+			}
+			ul{
+				list-style:none;
+				margin:0px;
+				padding:0px;
+			}
+			li{
+				text-align:center;
+				float:left;
+				margin-left:10px;
+				width:50px;
+				height:25px;
+				background:#FFF;
+				border:1px solid blue;
+				line-height:25px;
+			}
+			#div1 div{
+				clear:both;
+				background:#D1EBFF;
+				width:200px;
+				height:100px;
+				display:none;
+				}
+		</style>
+		<script>
+window.onload=function(){
+	var div1=document.getElementById("div1");
+	var li=div1.getElementsByTagName("li");
+	var odiv=div1.getElementsByTagName("div");
+	for(var i=0;i<li.length;i++){
+		li[i].x=i;
+		li[i].onclick=function(){
+			for(var i=0;i<odiv.length;i++){
+				odiv[i].style.display="none";
+				li[i].style.background="#FFF";
+			}
+			li[this.x].style.background="transparent";
+			odiv[this.x].style.display="block";
+		}
+	}
+}
+</script>
+	</head>
+	<body>
+		<div id="div1">
+			<ul>
+				<li style="background:transparent">项目一</li>
+				<li>项目二</li>
+				<li>项目三</li>
+			</ul>
+			<div style="display:block">项目一</div>
+			<div>项目二</div>
+			<div>项目三</div>
+		</div>
+	</body>
+</html>

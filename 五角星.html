@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+canvas{
+	border:1px solid #ff0;
+	
+	}
+</style>
+<script>
+window.onload=function(){
+	var can=document.getElementById("can");
+	var c=can.getContext("2d");
+	c.fillStyle="#f00";
+	c.strokeStyle="#000";
+	c.lineWidth=2;
+	c.beginPath();
+	c.moveTo(30,50);
+	c.lineTo(40,10);
+	c.lineTo(50,50);
+	c.lineTo(70,50);
+	c.lineTo(50,65);
+	c.lineTo(60,100);
+	c.lineTo(40,75);
+/*c.lineTo(20,100);
+c.lineTo(30,65);
+c.lineTo(10,50);*/
+	c.fill();
+	c.stroke();
+	c.closePath();
+	c.beginPath();
+	c.translate(80,0);
+	c.scale(-1,1);
+	c.moveTo(30,50);
+	c.lineTo(40,10);
+	c.lineTo(50,50);
+	c.lineTo(70,50);
+	c.lineTo(50,65);
+	c.lineTo(60,100);
+	c.lineTo(40,75);
+	c.fill();
+	c.stroke();
+	c.closePath();
+	}
+</script>
+</head>
+
+<body>
+
+  <canvas id="can" width="200" height="200"></canvas>
+<audio controls>
+<source  src="dylan.mp3" width="100" height="100" >
+</audio>
+</body>
+</html>
